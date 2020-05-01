@@ -57,11 +57,15 @@ easy_split_app.controller('LoginCtrl', function ($scope, LoginService) {
   $scope.login = function () {
     console.log("Inserted:" + $scope.data.username + " " + $scope.data.password)
 
-    // easy_split_app.LoginService.check($scope.data.username, $scope.data.password)
-
     LoginService.check($scope.data.username, $scope.data.password)
       .then(function (data) {
-          console.log(JSON.stringify(data));
+          console.log(JSON.stringify(data.data.valid_user));
+
+          if (data.data.valid_user === "true") {
+            console.log("access granted")
+          } else {
+            console.log("access denied")
+          }
         },
 
         function (err) {
@@ -79,6 +83,7 @@ easy_split_app.controller('LoginCtrl', function ($scope, LoginService) {
 // FACTORY
 easy_split_app.factory('LoginService', ['$http', '$q',
 
+  
   function ($http, $q) {
 
     var mDeferred = $q.defer();
@@ -88,6 +93,7 @@ easy_split_app.factory('LoginService', ['$http', '$q',
 
     return service;
 
+    // Check if username and password are valid 
     function check(username, password) {
 
       return $http.get("http://ie-mobileservices.eu-de.mybluemix.net/checkuser?username=" + username + "&password=" + password)
@@ -99,10 +105,9 @@ easy_split_app.factory('LoginService', ['$http', '$q',
 
           }
         })
-        .error(function (error, status) {
+        .error(function (error) {
           console.log(error);
         });
     }
-
   }
 ])
