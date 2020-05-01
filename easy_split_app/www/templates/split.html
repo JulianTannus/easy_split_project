@@ -1,0 +1,67 @@
+<uses-permission android:name="android.permission.CAMERA" />
+<ion-view view-title="Split" name="split-view" hide-nav-bar="true">
+    <ion-content class="padding">
+
+        <head>
+            <link href="css/split.css" rel="stylesheet">
+        </head>
+
+        <body ng-app="starter" ng-controller="CamCtrl">
+
+            
+
+            <div class="list card">
+            </div>
+
+            <div class="item item-avatar">
+
+                <img src="img/EasySplitLOGO.png">
+                <h2> Join Split
+                </h2>
+                <p>Easy join just <strong>open camera and scan!</strong>.
+                </p>
+            </div>
+            <div class="item item-image">
+                <img ng-src="{{myimage}}">
+            </div>
+
+            <a class="item item-icon-left positive" ng-click="takepicture()">
+                <i class="icon ion-camera"></i>
+                Open camera
+            </a>
+
+            <button class="button button-block button-positive" ng-click="recognizepic()" id="button-login">
+                Pay Split
+            </button>
+
+
+
+
+
+            <!--
+        <br>
+        <br>
+  
+        <div>
+          <img src="img/EasySplitLOGO.png" id="logo-login">
+        </div>
+  
+        <br>
+        <br>
+  
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" placeholder="Username" ng-model="data.username" id="username">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="data.password">
+          </label>
+        </div>
+  
+  
+  
+        <button class="button button-block button-calm" ng-click="login()" id="button-login">Login</button>
+    -->
+        </body>
+    </ion-content>
+</ion-view>
