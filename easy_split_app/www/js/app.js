@@ -40,7 +40,13 @@ easy_split_app.config(function($stateProvider, $urlRouterProvider) {
 //        user_name:''
 //      }
     })
-    $urlRouterProvider.otherwise('/home');
+    
+    .state('split', {
+      url: '/split',
+      templateUrl: 'templates/split.html',
+      controller: 'CamCtrl',
+    })
+    $urlRouterProvider.otherwise('/split');
 });
 
 easy_split_app.controller('HomeCtrl', function($scope, $stateParams){
@@ -52,3 +58,26 @@ easy_split_app.controller('LoginCtrl', function($scope, $stateParams){
   
   console.log($scope.data);
 });
+
+
+easy_split_app.controller('CamCtrl', function($scope, CameraService){
+    $scope.myimage = "img/nophoto.png";
+    $scope.takepicture = function() {
+      navigator.camera.getPicture(onSuccess, onFail, {
+        quality: 20,
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        correctOrientation:true,
+     
+      });
+      function onSuccess(imageData) {
+        $scope.$apply(function() {
+          $scope.myimage = "data:image/jpeg;base64," + imageData;
+          alert(imageData);
+        });
+      }
+      function onFail(message) {
+        alert('Failed because: ' + message);
+      }
+    }
+  });
