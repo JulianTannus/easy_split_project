@@ -1,0 +1,1164 @@
+.mediaViewInfo {
+	--web-view-name: Home – 1;
+	--web-view-id: Home___1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Home___1;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Home___1 {
+	position: absolute;
+	width: 375px;
+	height: 990px;
+	background-color: rgba(242,243,247,1);
+	overflow: hidden;
+	--web-view-name: Home – 1;
+	--web-view-id: Home___1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+@keyframes fadein {
+
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+
+}
+#Total_balance {
+	position: absolute;
+	width: 318px;
+	height: 94px;
+	left: 29px;
+	top: 183px;
+	overflow: visible;
+}
+#Group_3417 {
+	position: absolute;
+	width: 318px;
+	height: 94px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_17378 {
+	filter: drop-shadow(2px 5px 10px rgba(221, 228, 239, 1));
+	position: absolute;
+	overflow: visible;
+	width: 348px;
+	height: 124px;
+	left: 0px;
+	top: 0px;
+}
+.Rectangle_17379 {
+	filter: drop-shadow(-5px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 348px;
+	height: 124px;
+	left: 0px;
+	top: 0px;
+}
+#Group_3421 {
+	position: absolute;
+	width: 130px;
+	height: 63px;
+	left: 94px;
+	top: 14px;
+	overflow: visible;
+}
+#_35_58 {
+	position: absolute;
+	left: 15px;
+	top: 27px;
+	overflow: visible;
+	width: 101px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	color: rgba(0,0,0,1);
+}
+#EasySplit_Balance {
+	opacity: 0.37;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 131px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	color: rgba(0,0,0,1);
+}
+#Menu {
+	position: absolute;
+	width: 44px;
+	height: 44px;
+	left: 311px;
+	top: 44px;
+	overflow: visible;
+}
+.Rectangle_17379_y {
+	filter: drop-shadow(-2px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 74px;
+	height: 74px;
+	left: 0px;
+	top: 0px;
+}
+#Group_3444 {
+	position: absolute;
+	width: 18px;
+	height: 16px;
+	left: 13px;
+	top: 14px;
+	overflow: visible;
+}
+#Rectangle_17381 {
+	opacity: 0.3;
+}
+.Rectangle_17381 {
+	position: absolute;
+	overflow: visible;
+	width: 18px;
+	height: 2px;
+	left: 0px;
+	top: 0px;
+}
+#Rectangle_17382 {
+	opacity: 0.3;
+}
+.Rectangle_17382 {
+	position: absolute;
+	overflow: visible;
+	width: 18px;
+	height: 2px;
+	left: 0px;
+	top: 14px;
+}
+#Rectangle_17383 {
+	opacity: 0.3;
+}
+.Rectangle_17383 {
+	position: absolute;
+	overflow: visible;
+	width: 12px;
+	height: 2px;
+	left: 6px;
+	top: 7px;
+}
+#ID1 {
+	position: absolute;
+	width: 168px;
+	height: 85px;
+	left: 104px;
+	top: 64px;
+	overflow: visible;
+}
+#Group_3484 {
+	position: absolute;
+	width: 354px;
+	height: 482px;
+	left: 11px;
+	top: 598px;
+	overflow: visible;
+}
+#Catagory {
+	position: absolute;
+	width: 329px;
+	height: 37px;
+	left: 9px;
+	top: 0px;
+	overflow: visible;
+}
+#Active {
+	position: absolute;
+	width: 329px;
+	height: 37px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#History {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 82px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 26px;
+	color: rgba(0,0,0,1);
+}
+.Rectangle_17380 {
+	position: absolute;
+	overflow: visible;
+	width: 329px;
+	height: 2px;
+	left: 0px;
+	top: 35px;
+}
+#Repeat_Grid_1 {
+	position: absolute;
+	width: 354px;
+	height: 429px;
+	left: 0px;
+	top: 53px;
+	overflow: hidden;
+}
+#Repeat_Grid_1_0 {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Transaction_item_list {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_8 {
+	position: absolute;
+	width: 87px;
+	height: 35px;
+	left: 64px;
+	top: 8px;
+	overflow: visible;
+}
+#Group_9 {
+	position: absolute;
+	width: 87px;
+	height: 35px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Restaurant {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 86px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.12px;
+}
+#Today___18_21 {
+	opacity: 0.6;
+	position: absolute;
+	left: 0px;
+	top: 21px;
+	overflow: visible;
+	width: 88px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#_12_00___ {
+	position: absolute;
+	left: 286px;
+	top: 18px;
+	overflow: visible;
+	width: 69px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.12px;
+}
+#supermarket {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.bg {
+	position: absolute;
+	overflow: visible;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#ID24px_8 {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 12px;
+	top: 12px;
+	overflow: visible;
+}
+.Path_97 {
+	overflow: visible;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_98 {
+	overflow: visible;
+	position: absolute;
+	width: 19.121px;
+	height: 18.157px;
+	left: 2.74px;
+	top: 3.133px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Repeat_Grid_1_1 {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 86px;
+	overflow: visible;
+}
+#Transaction_item_list_bn {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_8_bo {
+	position: absolute;
+	width: 103px;
+	height: 35px;
+	left: 64px;
+	top: 8px;
+	overflow: visible;
+}
+#Group_9_bp {
+	position: absolute;
+	width: 103px;
+	height: 35px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Restaurant_bq {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 86px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#Tuesday___13_40 {
+	opacity: 0.6;
+	position: absolute;
+	left: 0px;
+	top: 21px;
+	overflow: visible;
+	width: 104px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#_34_00___ {
+	position: absolute;
+	left: 286px;
+	top: 18px;
+	overflow: visible;
+	width: 69px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.12px;
+}
+#supermarket_bt {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.bg_bu {
+	position: absolute;
+	overflow: visible;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#ID24px_8_bv {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 12px;
+	top: 12px;
+	overflow: visible;
+}
+.Path_97_bw {
+	overflow: visible;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_98_bx {
+	overflow: visible;
+	position: absolute;
+	width: 19.121px;
+	height: 18.157px;
+	left: 2.74px;
+	top: 3.133px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Repeat_Grid_1_2 {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 172px;
+	overflow: visible;
+}
+#Transaction_item_list_bz {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_8_b {
+	position: absolute;
+	width: 89px;
+	height: 35px;
+	left: 64px;
+	top: 8px;
+	overflow: visible;
+}
+#Group_9_b {
+	position: absolute;
+	width: 89px;
+	height: 35px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Coffee_ {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 56px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#Friday___07_20 {
+	opacity: 0.6;
+	position: absolute;
+	left: 0px;
+	top: 21px;
+	overflow: visible;
+	width: 90px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#_5_00___ {
+	position: absolute;
+	left: 295px;
+	top: 18px;
+	overflow: visible;
+	width: 60px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.12px;
+}
+#supermarket_b {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.bg_b {
+	position: absolute;
+	overflow: visible;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#ID24px_6 {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 12px;
+	top: 12px;
+	overflow: visible;
+}
+.Path_93 {
+	overflow: visible;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_94 {
+	overflow: visible;
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	left: 4px;
+	top: 3px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Repeat_Grid_1_3 {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 258px;
+	overflow: visible;
+}
+#Transaction_item_list_cb {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_8_cc {
+	position: absolute;
+	width: 112px;
+	height: 35px;
+	left: 64px;
+	top: 8px;
+	overflow: visible;
+}
+#Group_9_cd {
+	position: absolute;
+	width: 112px;
+	height: 35px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Shopping {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 76px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#Yesterday___18_40 {
+	opacity: 0.6;
+	position: absolute;
+	left: 0px;
+	top: 21px;
+	overflow: visible;
+	width: 113px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#_231_30___ {
+	position: absolute;
+	left: 277px;
+	top: 18px;
+	overflow: visible;
+	width: 78px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.12px;
+}
+#supermarket_ch {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.bg_ci {
+	position: absolute;
+	overflow: visible;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#ID24px_3 {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 12px;
+	top: 12px;
+	overflow: visible;
+}
+.Path_87 {
+	overflow: visible;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_88 {
+	overflow: visible;
+	position: absolute;
+	width: 18px;
+	height: 16px;
+	left: 3px;
+	top: 4px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Repeat_Grid_1_4 {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 344px;
+	overflow: visible;
+}
+#Transaction_item_list_cn {
+	position: absolute;
+	width: 354px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_8_co {
+	position: absolute;
+	width: 112px;
+	height: 35px;
+	left: 64px;
+	top: 8px;
+	overflow: visible;
+}
+#Group_9_cp {
+	position: absolute;
+	width: 112px;
+	height: 35px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Food {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 41px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#Yesterday___12_40 {
+	opacity: 0.6;
+	position: absolute;
+	left: 0px;
+	top: 21px;
+	overflow: visible;
+	width: 113px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(32,36,38,1);
+	letter-spacing: 0.12px;
+}
+#_20_00___ {
+	position: absolute;
+	left: 286px;
+	top: 18px;
+	overflow: visible;
+	width: 69px;
+	white-space: nowrap;
+	text-align: right;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	color: rgba(0,0,0,1);
+	letter-spacing: 0.12px;
+}
+#supermarket_ct {
+	position: absolute;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.bg_cu {
+	position: absolute;
+	overflow: visible;
+	width: 48px;
+	height: 48px;
+	left: 0px;
+	top: 0px;
+}
+#ID24px_5 {
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 12px;
+	top: 12px;
+	overflow: visible;
+}
+.Path_91 {
+	overflow: visible;
+	position: absolute;
+	width: 22px;
+	height: 21.99px;
+	left: 1px;
+	top: 1px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Path_92 {
+	overflow: visible;
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Component_7___4 {
+	position: absolute;
+	width: 324px;
+	height: 54px;
+	left: 26px;
+	top: 515px;
+	overflow: visible;
+}
+#Group_3464 {
+	position: absolute;
+	width: 152px;
+	height: 54px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_c {
+	position: absolute;
+	width: 152px;
+	height: 54px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_17378_c {
+	filter: drop-shadow(2px 5px 10px rgba(221, 228, 239, 1));
+	position: absolute;
+	overflow: visible;
+	width: 182px;
+	height: 84px;
+	left: 0px;
+	top: 0px;
+}
+.Rectangle_17379_c {
+	filter: drop-shadow(-5px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 182px;
+	height: 84px;
+	left: 0px;
+	top: 0px;
+}
+#Group_3461 {
+	position: absolute;
+	width: 59px;
+	height: 20px;
+	left: 47px;
+	top: 17px;
+	overflow: visible;
+}
+#Send {
+	position: absolute;
+	left: 21px;
+	top: 0px;
+	overflow: visible;
+	width: 39px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	color: rgba(56,182,255,1);
+}
+.ic_near_me_24px {
+	overflow: visible;
+	position: absolute;
+	width: 13.739px;
+	height: 13.739px;
+	left: 0px;
+	top: 3px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Group_3465 {
+	position: absolute;
+	width: 152px;
+	height: 54px;
+	left: 172px;
+	top: 0px;
+	overflow: visible;
+}
+#bg_da {
+	position: absolute;
+	width: 152px;
+	height: 54px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_17378_da {
+	filter: drop-shadow(2px 5px 10px rgba(221, 228, 239, 1));
+	position: absolute;
+	overflow: visible;
+	width: 182px;
+	height: 84px;
+	left: 0px;
+	top: 0px;
+}
+.Rectangle_17379_da {
+	filter: drop-shadow(-5px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 182px;
+	height: 84px;
+	left: 0px;
+	top: 0px;
+}
+#Group_3463 {
+	position: absolute;
+	width: 79px;
+	height: 20px;
+	left: 37px;
+	top: 17px;
+	overflow: visible;
+}
+#Receive {
+	opacity: 0.3;
+	position: absolute;
+	left: 21px;
+	top: 0px;
+	overflow: visible;
+	width: 59px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 17px;
+	color: rgba(0,0,0,1);
+}
+#ic_near_me_24px_dc {
+	opacity: 0.3;
+}
+.ic_near_me_24px_dc {
+	overflow: visible;
+	position: absolute;
+	width: 13.739px;
+	height: 13.739px;
+	left: 0px;
+	top: 3px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Group_3472 {
+	position: absolute;
+	width: 335px;
+	height: 170px;
+	left: 20px;
+	top: 311px;
+	overflow: visible;
+}
+#Group_3471 {
+	position: absolute;
+	width: 335px;
+	height: 170px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_3417_df {
+	position: absolute;
+	width: 335px;
+	height: 78px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	--web-animation: fadein 0.3s ease-out;
+	--web-action-type: page;
+	--web-action-target: Create_Split.html;
+	cursor: pointer;
+}
+.Rectangle_17378_dg {
+	filter: drop-shadow(2px 5px 10px rgba(221, 228, 239, 1));
+	position: absolute;
+	overflow: visible;
+	width: 365px;
+	height: 108px;
+	left: 0px;
+	top: 0px;
+}
+.Rectangle_17379_dh {
+	filter: drop-shadow(-5px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 365px;
+	height: 106px;
+	left: 0px;
+	top: 0px;
+}
+#Group_3430 {
+	position: absolute;
+	width: 110px;
+	height: 26px;
+	left: 75px;
+	top: 24px;
+	overflow: visible;
+}
+#Group_3425 {
+	position: absolute;
+	width: 110px;
+	height: 26px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Create_Split {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 111px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 22px;
+	color: rgba(0,0,0,1);
+}
+.Rectangle_17378_dl {
+	filter: drop-shadow(2px 5px 10px rgba(221, 228, 239, 1));
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	height: 77px;
+	left: 16px;
+	top: 16px;
+}
+.Rectangle_17379_dm {
+	filter: drop-shadow(-5px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	height: 77px;
+	left: 16px;
+	top: 16px;
+}
+#Group_3469 {
+	position: absolute;
+	width: 335px;
+	height: 78px;
+	left: 0px;
+	top: 92px;
+	overflow: visible;
+}
+.Rectangle_17378_do {
+	filter: drop-shadow(2px 5px 10px rgba(221, 228, 239, 1));
+	position: absolute;
+	overflow: visible;
+	width: 365px;
+	height: 108px;
+	left: 0px;
+	top: 0px;
+}
+.Rectangle_17379_dp {
+	filter: drop-shadow(-5px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 365px;
+	height: 106px;
+	left: 0px;
+	top: 0px;
+}
+#Group_3470 {
+	position: absolute;
+	width: 87px;
+	height: 26px;
+	left: 75px;
+	top: 116px;
+	overflow: visible;
+}
+#Group_3425_dr {
+	position: absolute;
+	width: 87px;
+	height: 26px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Join_Split {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 88px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: SF Pro Display;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 22px;
+	color: rgba(0,0,0,1);
+}
+.Rectangle_17385 {
+	filter: drop-shadow(-5px -2px 10px rgba(255, 255, 255, 1));
+	position: absolute;
+	overflow: visible;
+	width: 77px;
+	height: 77px;
+	left: 16px;
+	top: 108px;
+}
+#slash {
+	transform: translate(-20px, -352px) matrix(1,0,0,1,46.3028,373.0596) rotate(12deg);
+	transform-origin: center;
+	position: absolute;
+	width: 27.05px;
+	height: 38.871px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Group_3468 {
+	position: absolute;
+	width: 27.05px;
+	height: 38.871px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Path_8445 {
+	overflow: visible;
+	position: absolute;
+	width: 34.54px;
+	height: 43.646px;
+	left: 0px;
+	top: 0px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.plus {
+	overflow: visible;
+	position: absolute;
+	width: 32.225px;
+	height: 32.225px;
+	left: 24.091px;
+	top: 117.091px;
+	transform: matrix(1,0,0,1,0,0);
+}
