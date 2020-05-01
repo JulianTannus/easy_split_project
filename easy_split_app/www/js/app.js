@@ -40,7 +40,7 @@ easy_split_app.config(function($stateProvider, $urlRouterProvider) {
 //        user_name:''
 //      }
     })
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 });
 
 easy_split_app.controller('HomeCtrl', function($scope, $stateParams){

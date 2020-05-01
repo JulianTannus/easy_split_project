@@ -1,12 +1,35 @@
-<ion-view hide-nav-bar="true">
-  <ion-content>
-    <ion-header-bar id=title-bar class="bar-positive">
-      Easy Split
-    </ion-header-bar>
-    <div id="cv-form-contents">
+<ion-view view-title="Login" name="login-view" hide-nav-bar="true">
+  <ion-content class="padding">
+
+    <head>
+      <link href="css/login.css" rel="stylesheet">
+    </head>
+
+    <body>
+
       <br>
       <br>
-      <h2>Login</h2>
-    </div>
+
+      <div>
+        <img src="img/easy_split_logo.png" id="logo-login">
+      </div>
+
+      <br>
+      <br>
+
+      <div class="list list-inset">
+        <label class="item item-input">
+          <input type="text" placeholder="Username" ng-model="data.username" id="username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="data.password">
+        </label>
+      </div>
+
+
+
+      <button class="button button-block button-calm" ng-click="login()" id="button-login">Login</button>
+
+    </body>
   </ion-content>
 </ion-view>
