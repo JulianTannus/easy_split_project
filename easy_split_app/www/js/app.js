@@ -45,7 +45,7 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
   // Get username
   $scope.data = {
     username: APIService.username,
-    balance: '-'
+    balance: false
   }
 
   $scope.checkUser = function () {
@@ -57,12 +57,24 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
   }
 
   $scope.showBalance = function () {
-    console.log("Getting account balance for: " + $scope.data.username)
+    console.log("Getting account balance for " + $scope.data.username + "...")
 
     APIService.getBalance($scope.data.username)
       .then(function (data) {
-          console.log(JSON.stringify(data.data.docs[0].balance));
-          $scope.data.balance = "€ " + JSON.stringify(data.data.docs[0].balance)
+          $scope.data.balance = JSON.stringify(data.data.docs[0].balance)
+          console.log($scope.data.balance);
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
+  }
+
+  $scope.updateBalance = function () {
+    APIService.modifyBalance($scope.data.username, parseFloat($scope.data.balance)-5)
+      .then(function (data) {
+          $scope.showBalance();
         },
 
         function (err) {
@@ -80,19 +92,15 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
   }
 
   $scope.login = function () {
-    console.log("Inserted:" + $scope.data.username + " " + $scope.data.password)
-
     APIService.check($scope.data.username, $scope.data.password)
       .then(function (data) {
-          console.log(JSON.stringify(data.data.valid_user));
-
           APIService.username = $scope.data.username;
 
           if (data.data.valid_user === "true") {
-            console.log("access granted")
+            console.log("Access granted to " + $scope.data.username)
             $state.go('home')
           } else {
-            console.log("access denied")
+            console.log("Access denied")
             $scope.incorrect_login = "Incorrect username or password";
           }
         },
@@ -114,7 +122,8 @@ easy_split_app.factory('APIService', ['$http', '$q',
     var mDeferred = $q.defer();
     var service = {
       check: check,
-      getBalance: getBalance
+      getBalance: getBalance,
+      modifyBalance: modifyBalance
     };
 
     return service;
@@ -139,6 +148,21 @@ easy_split_app.factory('APIService', ['$http', '$q',
     function getBalance(username) {
 
       return $http.get("http://ie-mobileservices.eu-de.mybluemix.net/checkbalance?username=" + username)
+        .success(function (data) {
+          if (data) {
+            /*console.log("http post success"+JSON.stringify(data));
+            console.log(status);*/
+            mDeferred.resolve(true);
+
+          }
+        })
+        .error(function (error) {
+          console.log(error);
+        });
+    }
+
+    function modifyBalance(username, balance) {
+      return $http.get("http://ie-mobileservices.eu-de.mybluemix.net/modifybalance?username=" + username + "&balance=" + balance)
         .success(function (data) {
           if (data) {
             /*console.log("http post success"+JSON.stringify(data));

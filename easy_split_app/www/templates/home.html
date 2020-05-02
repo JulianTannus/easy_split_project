@@ -12,7 +12,8 @@
         <br><br>
         <div id="balance">
           <p id="balance_title">EasySplit Balance</p>
-          <p id="balance_amount">{{data.balance}}</p>
+          <p ng-if="data.balance!=false" id="balance_amount">€ {{data.balance}}</p>
+          <p ng-if="data.balance==false" id="balance_amount"> - </p>
         </div>
         <br>
         <div id="main_buttons">
@@ -21,7 +22,7 @@
         </div>
         <br>
         <div id="secondary_buttons">
-          <button>Send</button>
+          <button ng-click="updateBalance()">Send</button>
           <span id="secondary_buttons_separator">
           <button>Receive</button>
         </div>
