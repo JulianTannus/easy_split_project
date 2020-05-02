@@ -208,15 +208,33 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
   }
 
   $scope.sendMoney = function () {
-    console.log("sending money...")
+    var current_balance_receiver = null;
 
+    console.log("sending money...")
     console.log("amount: " + parseFloat($scope.data.amount))
     console.log("to: " + $scope.data.receiver)
-
     console.log("remaining balance: " + (parseFloat($scope.data.balance) - $scope.data.amount))
 
     // Updating sender balance 
     $scope.updateBalance($scope.data.username, parseFloat($scope.data.balance) - $scope.data.amount)
+
+    // Updating receiver balance 
+
+    console.log("Getting account balance for " + $scope.data.receiver + "...")
+
+    APIService.getBalance($scope.data.receiver)
+      .then(function (data) {
+          current_balance_receiver = data.data.docs[0].balance
+          console.log(current_balance_receiver);
+          APIService.modifyBalance($scope.data.receiver, (current_balance_receiver + $scope.data.amount))
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
+
+    console.log("transaction completed")
   }
 
   $scope.updateBalance = function (user, balance) {
@@ -230,7 +248,6 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
           console.log("error")
         })
   }
-
 });
 
 // FACTORY
