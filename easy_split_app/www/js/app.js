@@ -208,33 +208,39 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
   }
 
   $scope.sendMoney = function () {
-    var current_balance_receiver = null;
 
-    console.log("sending money...")
-    console.log("amount: " + parseFloat($scope.data.amount))
-    console.log("to: " + $scope.data.receiver)
-    console.log("remaining balance: " + (parseFloat($scope.data.balance) - $scope.data.amount))
+    if (parseFloat($scope.data.balance) < $scope.data.amount) {
+      console.log("Insufficient funds")
+      $scope.insufficientFundsPopUp()
+    } else {
+      var current_balance_receiver = null;
 
-    // Updating sender balance 
-    $scope.updateBalance($scope.data.username, parseFloat($scope.data.balance) - $scope.data.amount)
+      console.log("sending money...")
+      console.log("amount: " + parseFloat($scope.data.amount))
+      console.log("to: " + $scope.data.receiver)
+      console.log("remaining balance: " + (parseFloat($scope.data.balance) - $scope.data.amount))
 
-    // Updating receiver balance 
+      // Updating sender balance 
+      $scope.updateBalance($scope.data.username, parseFloat($scope.data.balance) - $scope.data.amount)
 
-    console.log("Getting account balance for " + $scope.data.receiver + "...")
+      // Updating receiver balance 
 
-    APIService.getBalance($scope.data.receiver)
-      .then(function (data) {
-          current_balance_receiver = data.data.docs[0].balance
-          console.log(current_balance_receiver);
-          APIService.modifyBalance($scope.data.receiver, (current_balance_receiver + $scope.data.amount))
-        },
+      console.log("Getting account balance for " + $scope.data.receiver + "...")
 
-        function (err) {
-          // error
-          console.log("error")
-        })
+      APIService.getBalance($scope.data.receiver)
+        .then(function (data) {
+            current_balance_receiver = data.data.docs[0].balance
+            console.log(current_balance_receiver);
+            APIService.modifyBalance($scope.data.receiver, (current_balance_receiver + $scope.data.amount))
+          },
 
-    console.log("transaction completed")
+          function (err) {
+            // error
+            console.log("error")
+          })
+
+      console.log("transaction completed")
+    }
   }
 
   $scope.updateBalance = function (user, balance) {
@@ -248,6 +254,20 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
           console.log("error")
         })
   }
+
+  $scope.insufficientFundsPopUp = function () {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Insufficient Funds',
+      template: 'Perdon yo no hablo pobre'
+    });
+    confirmPopup.then(function (res) {
+      if (res) {
+        console.log('GPS activate');
+      } else {
+        console.log('GPS not activate');
+      }
+    });
+  };
 });
 
 // FACTORY

@@ -13,7 +13,7 @@
   margin-top: 40px;
   font-size: 18pt;
   margin-left: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #balance {
@@ -27,11 +27,11 @@
   box-shadow:
     0em 0em 3em white,
     0em 0em 0.2em #d2e0e7;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #balance_title {
-  font-size: 12pt;
+  font-size: 14pt;
   color: black;
   text-align: center;
 }
