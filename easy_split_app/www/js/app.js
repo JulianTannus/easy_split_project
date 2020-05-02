@@ -51,14 +51,14 @@ easy_split_app.controller('HomeCtrl', function ($scope, APIService) {
   $scope.hi = function () {
     console.log("hello")
   }
-  
+
   $scope.showBalance = function () {
     console.log("Getting account balance for: " + $scope.data.username)
 
     APIService.getBalance($scope.data.username)
       .then(function (data) {
           console.log(JSON.stringify(data.data.docs[0].balance));
-          $scope.data.balance = JSON.stringify(data.data.docs[0].balance)
+          $scope.data.balance = "€ " + JSON.stringify(data.data.docs[0].balance)
         },
 
         function (err) {
@@ -89,7 +89,7 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
             $state.go('home')
           } else {
             console.log("access denied")
-            $scope.error_message = "Incorrect username or password"; 
+            $scope.incorrect_login = "Incorrect username or password";
           }
         },
 
@@ -121,7 +121,7 @@ easy_split_app.factory('APIService', ['$http', '$q',
     function check(username, password) {
 
       return $http.get("http://ie-mobileservices.eu-de.mybluemix.net/checkuser?username=" + username + "&password=" + password)
-        .success(function (data, status) {
+        .success(function (data) {
           if (data) {
             /*console.log("http post success"+JSON.stringify(data));
             console.log(status);*/
@@ -137,7 +137,7 @@ easy_split_app.factory('APIService', ['$http', '$q',
     function getBalance(username) {
 
       return $http.get("http://ie-mobileservices.eu-de.mybluemix.net/checkbalance?username=" + username)
-        .success(function (data, status) {
+        .success(function (data) {
           if (data) {
             /*console.log("http post success"+JSON.stringify(data));
             console.log(status);*/
