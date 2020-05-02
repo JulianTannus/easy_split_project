@@ -10,26 +10,26 @@
 
     <body ng-app="starter" ng-controller="CamCtrl">
       <div class="item">
-
+        <br>
         <img src="img/easy_split_logo.png" id="logo">
-        <h2> Join Split
-        </h2>
-        <p>It is easy, just <strong>open camera and scan!</strong>.
-        </p>
+        <br><br>
+        <h2 id="title">Join Split</h2>
+        <p id="description">It's easy, just <strong>open the camera and scan!</strong></p>
       </div>
       <div class="item item-image">
-        <img ng-src={{no_photo}}>
+        <img ng-src={{no_photo}} id="qr_code">
       </div>
 
       <a class="item item-icon-left positive" ng-click="takepicture()">
         <i class="icon ion-camera"></i>
         Open camera
       </a>
-
-      <button class="button button-block button-positive" ng-click="recognizepic()" id="button-login">
-        Pay Split
-      </button>
-
+      <br><br>
+      <div id="pay_button">
+        <button ng-click="recognizepic()">
+          Pay Split
+        </button>
+      </div>
       <div class="list">
         <div class="item item-divider">
           Choose split: {{data.splitType}}
