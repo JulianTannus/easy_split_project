@@ -1,0 +1,44 @@
+<uses-permission android:name="android.permission.CAMERA" />
+
+<ion-view hide-nav-bar="true" ng-init="checkUser()">
+
+  <ion-content class="padding">
+
+    <head>
+      <link href="css/split.css" rel="stylesheet">
+    </head>
+
+    <body ng-app="starter" ng-controller="CamCtrl">
+      <div class="item">
+
+        <img src="img/easy_split_logo.png" id="logo-login">
+        <h2> Join Split
+        </h2>
+        <p>It is easy, just <strong>open camera and scan!</strong>.
+        </p>
+      </div>
+      <div class="item item-image">
+        <img ng-src={{no_photo}}>
+      </div>
+
+      <a class="item item-icon-left positive" ng-click="takepicture()">
+        <i class="icon ion-camera"></i>
+        Open camera
+      </a>
+
+      <button class="button button-block button-positive" ng-click="recognizepic()" id="button-login">
+        Pay Split
+      </button>
+
+      <div class="list">
+        <div class="item item-divider">
+          Choose split: {{data.splitType}}
+        </div>
+        <ion-radio ng-repeat="item in splitTypeList" ng-model="data.splitType" ng-value="item.text" required>
+          {{ item.text }}
+        </ion-radio>
+      </div>
+
+    </body>
+  </ion-content>
+</ion-view>

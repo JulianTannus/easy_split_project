@@ -37,6 +37,11 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
     })
+    .state('split', {
+      url: '/split',
+      templateUrl: 'templates/split.html',
+      controller: 'CamCtrl'
+    })
   $urlRouterProvider.otherwise('/login');
 });
 
@@ -89,6 +94,10 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
           console.log("error")
         })
   }
+
+  $scope.goToJoinSplit = function () {
+    $state.go('split');
+  }
 });
 
 easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
@@ -120,6 +129,44 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
   }
 });
 
+easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
+
+  $scope.data = {
+    splitType: ''
+  };
+  $scope.genderinfoList = [{
+      text: "Female",
+      checked: false
+    },
+    {
+      text: "Male",
+      checked: false
+    }
+  ];
+
+  $scope.no_photo = "img/no_photo.png";
+
+  $scope.takepicture = function () {
+    navigator.camera.getPicture(onSuccess, onFail, {
+      quality: 20,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      correctOrientation: true,
+
+    });
+
+    function onSuccess(imageData) {
+      $scope.$apply(function () {
+        $scope.myimage = "data:image/jpeg;base64," + imageData;
+        alert(imageData);
+      });
+    }
+
+    function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+  }
+});
 
 // FACTORY
 easy_split_app.factory('APIService', ['$http', '$q',
