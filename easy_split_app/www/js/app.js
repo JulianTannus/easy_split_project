@@ -42,6 +42,11 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/split.html',
       controller: 'CamCtrl'
     })
+    .state('send', {
+      url: 'send',
+      templateUrl: 'templates/send.html',
+      controller: 'SendCtrl'
+    })
   $urlRouterProvider.otherwise('/login');
 });
 
@@ -76,7 +81,8 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
         })
   }
   $scope.sendMoney = function () {
-    $scope.updateBalance(parseFloat($scope.data.balance) - 5)
+    // $scope.updateBalance(parseFloat($scope.data.balance) - 5)
+    $state.go('send')
   }
 
   $scope.receiveMoney = function () {
@@ -167,6 +173,8 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
     }
   }
 });
+
+easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup) {});
 
 // FACTORY
 easy_split_app.factory('APIService', ['$http', '$q',
