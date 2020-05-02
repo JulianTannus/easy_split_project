@@ -30,26 +30,45 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller: 'HomeCtrl',
+      controller: 'HomeCtrl'
     })
     .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
-      controller: 'LoginCtrl',
-      //      params: {
-      //        user_name:''
-      //      }
+      controller: 'LoginCtrl'
     })
   $urlRouterProvider.otherwise('/login');
 });
 
-easy_split_app.controller('HomeCtrl', function ($scope, $stateParams, LoginService) {
+easy_split_app.controller('HomeCtrl', function ($scope, APIService) {
 
-  // Get user id 
-  var username = LoginService.username;
+  // Get username
+  $scope.data = {
+    username: APIService.username,
+    balance: '-'
+  }
+
+  $scope.hi = function () {
+    console.log("hello")
+  }
+  
+  $scope.showBalance = function () {
+    console.log("Getting account balance for: " + $scope.data.username)
+
+    APIService.getBalance($scope.data.username)
+      .then(function (data) {
+          console.log(JSON.stringify(data.data.docs[0].balance));
+          $scope.data.balance = JSON.stringify(data.data.docs[0].balance)
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
+  }
 });
 
-easy_split_app.controller('LoginCtrl', function ($scope, $state, LoginService) {
+easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
 
   $scope.data = {
     username: "",
@@ -59,11 +78,11 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, LoginService) {
   $scope.login = function () {
     console.log("Inserted:" + $scope.data.username + " " + $scope.data.password)
 
-    LoginService.check($scope.data.username, $scope.data.password)
+    APIService.check($scope.data.username, $scope.data.password)
       .then(function (data) {
           console.log(JSON.stringify(data.data.valid_user));
 
-          LoginService.username = $scope.data.username;
+          APIService.username = $scope.data.username;
 
           if (data.data.valid_user === "true") {
             console.log("access granted")
@@ -82,7 +101,7 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, LoginService) {
 
 
 // FACTORY
-easy_split_app.factory('LoginService', ['$http', '$q',
+easy_split_app.factory('APIService', ['$http', '$q',
 
 
   function ($http, $q) {
@@ -92,6 +111,7 @@ easy_split_app.factory('LoginService', ['$http', '$q',
     var mDeferred = $q.defer();
     var service = {
       check: check,
+      getBalance: getBalance
     };
 
     return service;
@@ -100,6 +120,22 @@ easy_split_app.factory('LoginService', ['$http', '$q',
     function check(username, password) {
 
       return $http.get("http://ie-mobileservices.eu-de.mybluemix.net/checkuser?username=" + username + "&password=" + password)
+        .success(function (data, status) {
+          if (data) {
+            /*console.log("http post success"+JSON.stringify(data));
+            console.log(status);*/
+            mDeferred.resolve(true);
+
+          }
+        })
+        .error(function (error) {
+          console.log(error);
+        });
+    }
+
+    function getBalance(username) {
+
+      return $http.get("http://ie-mobileservices.eu-de.mybluemix.net/checkbalance?username=" + username)
         .success(function (data, status) {
           if (data) {
             /*console.log("http post success"+JSON.stringify(data));

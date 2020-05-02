@@ -6,13 +6,13 @@
     </head>
 
     <body>
-      <div>
+      <div ng-init="showBalance()">
         <br><br>
         <img src="img/easy_split_logo.png" id="logo">
         <br><br>
         <div id="balance">
           <p id="balance_title">EasySplit Balance</p>
-          <p id="balance_amount">$35.58</p>
+          <p id="balance_amount">{{data.balance}}</p>
         </div>
         <br>
         <div id="main_buttons">
@@ -22,8 +22,8 @@
         <br>
         <div id="secondary_buttons">
           <button>Send</button>
-          <span id="secondary_buttons_separator"><span>
-              <button>Receive</button>
+          <span id="secondary_buttons_separator">
+          <button>Receive</button>
         </div>
         <br><br>
         <div id="history">
