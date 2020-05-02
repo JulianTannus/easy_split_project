@@ -182,7 +182,8 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
   $scope.data = {
     username: APIService.username,
     balance: false,
-    amount: null
+    amount: null,
+    receiver: ""
   }
 
   $scope.checkUser = function () {
@@ -208,11 +209,18 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
 
   $scope.sendMoney = function () {
     console.log("sending money...")
-    // $scope.updateBalance(parseFloat($scope.data.balance) - $scope.data.amount)
+
+    console.log("amount: " + parseFloat($scope.data.amount))
+    console.log("to: " + $scope.data.receiver)
+
+    console.log("remaining balance: " + (parseFloat($scope.data.balance) - $scope.data.amount))
+
+    // Updating sender balance 
+    $scope.updateBalance($scope.data.username, parseFloat($scope.data.balance) - $scope.data.amount)
   }
 
-  $scope.updateBalance = function (balance) {
-    APIService.modifyBalance($scope.data.username, balance)
+  $scope.updateBalance = function (user, balance) {
+    APIService.modifyBalance(user, balance)
       .then(function (data) {
           $scope.showBalance();
         },
