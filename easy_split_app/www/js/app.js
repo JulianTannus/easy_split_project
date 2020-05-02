@@ -43,12 +43,13 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       controller: 'CamCtrl'
     })
     .state('send', {
-      url: 'send',
+      url: '/send',
       templateUrl: 'templates/send.html',
       controller: 'SendCtrl'
     })
   $urlRouterProvider.otherwise('/login');
 });
+
 
 easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
 
@@ -80,6 +81,7 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
           console.log("error")
         })
   }
+
   $scope.sendMoney = function () {
     // $scope.updateBalance(parseFloat($scope.data.balance) - 5)
     $state.go('send')
@@ -174,7 +176,54 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
   }
 });
 
-easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup) {});
+easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, APIService) {
+
+  // Get username
+  $scope.data = {
+    username: APIService.username,
+    balance: false,
+    amount: null
+  }
+
+  $scope.checkUser = function () {
+    if ($scope.data.username === undefined) {
+      $state.go('login');
+    } else {
+      $scope.showBalance();
+    }
+  }
+
+  $scope.showBalance = function () {
+    APIService.getBalance($scope.data.username)
+      .then(function (data) {
+          $scope.data.balance = JSON.stringify(data.data.docs[0].balance)
+          console.log($scope.data.balance);
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
+  }
+
+  $scope.sendMoney = function () {
+    console.log("sending money...")
+    // $scope.updateBalance(parseFloat($scope.data.balance) - $scope.data.amount)
+  }
+
+  $scope.updateBalance = function (balance) {
+    APIService.modifyBalance($scope.data.username, balance)
+      .then(function (data) {
+          $scope.showBalance();
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
+  }
+
+});
 
 // FACTORY
 easy_split_app.factory('APIService', ['$http', '$q',
