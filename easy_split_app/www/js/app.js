@@ -43,11 +43,13 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 });
 
-easy_split_app.controller('HomeCtrl', function ($scope, $stateParams) {
+easy_split_app.controller('HomeCtrl', function ($scope, $stateParams, LoginService) {
 
+  // Get user id 
+  var username = LoginService.username;
 });
 
-easy_split_app.controller('LoginCtrl', function ($scope, LoginService) {
+easy_split_app.controller('LoginCtrl', function ($scope, $state, LoginService) {
 
   $scope.data = {
     username: "",
@@ -61,8 +63,11 @@ easy_split_app.controller('LoginCtrl', function ($scope, LoginService) {
       .then(function (data) {
           console.log(JSON.stringify(data.data.valid_user));
 
+          LoginService.username = $scope.data.username;
+
           if (data.data.valid_user === "true") {
             console.log("access granted")
+            $state.go('home')
           } else {
             console.log("access denied")
           }
@@ -72,19 +77,17 @@ easy_split_app.controller('LoginCtrl', function ($scope, LoginService) {
           // error
           console.log("error")
         })
-
-
-
   }
-
 });
 
 
 // FACTORY
 easy_split_app.factory('LoginService', ['$http', '$q',
 
-  
+
   function ($http, $q) {
+
+    var username = "";
 
     var mDeferred = $q.defer();
     var service = {
