@@ -2,22 +2,6 @@
     background-color: #F2F3F7;
   }
 
-  .item {
-    background-color: #F2F3F7;
-  }
-
-  #button-login {
-    background-color: #38B6FF;
-  }
-
-  #logo-login {
-    width: 163px;
-    height: 80px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   #logo {
     width: 180px;
     display: block;
@@ -25,47 +9,28 @@
     margin-right: auto;
   }
 
-  #balance {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 14pt;
-    width: 320px;
-    padding: 13px;
-    border-radius: 10px;
-    box-shadow:
-      0em 0em 3em white,
-      0em 0em 0.2em #d2e0e7;
+  #title {
+    font-size: 16pt;
   }
 
-  #balance_title {
+  #description {
     font-size: 12pt;
-    color: grey;
-    text-align: center;
-    margin-bottom: 15px;
   }
 
-  #balance_amount {
-    font-size: 24pt;
-    text-align: center;
+  #qr_code {
+    width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  #main_buttons {
+  #pay_button {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  #secondary_buttons {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-  }
-
-  #main_buttons button {
+  #pay_button button{
     width: 350px;
     padding: 15px;
     border-radius: 10px;
@@ -74,26 +39,4 @@
     font-size: 18pt;
     margin-bottom: 15px;
     box-shadow: white;
-  }
-
-  #secondary_buttons button {
-    width: 150px;
-    padding: 10px;
-    border: transparent;
-    border-radius: 5px;
-    background-color: transparent;
-    color: black;
-    font-size: 14pt;
-    box-shadow:
-      0em 0em 3em white,
-      0em 0em 0.2em #d2e0e7;
-  }
-
-  #secondary_buttons_separator {
-    margin-left: 30px
-  }
-
-  #history {
-    font-size: 18pt;
-    margin-left: 10px;
   }
