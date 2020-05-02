@@ -92,6 +92,7 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
   }
 
   $scope.login = function () {
+    $scope.incorrect_login = "-";
     APIService.check($scope.data.username, $scope.data.password)
       .then(function (data) {
           APIService.username = $scope.data.username;
