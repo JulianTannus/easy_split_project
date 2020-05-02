@@ -21,12 +21,13 @@
         <label class="item item-input">
           <input type="text" placeholder="Username" ng-model="data.username" id="username">
         </label>
+        <br>
         <label class="item item-input">
           <input type="password" placeholder="Password" ng-model="data.password">
         </label>
       </div>
 
-
+      <p id="error-message">{{error_message}}</p>
 
       <button class="button button-block button-calm" ng-click="login()" id="button-login">Login</button>
 

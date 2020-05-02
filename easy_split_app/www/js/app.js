@@ -70,6 +70,7 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, LoginService) {
             $state.go('home')
           } else {
             console.log("access denied")
+            $scope.error_message = "Incorrect username or password"; 
           }
         },
 

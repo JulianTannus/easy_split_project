@@ -2,18 +2,34 @@
   background-color: #F2F3F7;
 }
 
+#logo-login {
+  width: 220px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.list {
+    background-color: #F2F3F7;
+}
+
 .item {
   background-color: #F2F3F7;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: #83888b;
+}
+
+input[type="text"], input[type="password"]
+{
+    font-size:18px;
+}
+
+#error-message {
+    color: red;
 }
 
 #button-login {
   background-color: #38B6FF;
-}
-
-#logo-login {
-  width: 220px;
-  /* height: 85px; */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
