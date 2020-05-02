@@ -157,7 +157,7 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
 
     function onSuccess(imageData) {
       $scope.$apply(function () {
-        $scope.myimage = "data:image/jpeg;base64," + imageData;
+        $scope.no_photo = "data:image/jpeg;base64," + imageData;
         alert(imageData);
       });
     }
