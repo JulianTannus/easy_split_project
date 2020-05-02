@@ -40,7 +40,7 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/login');
 });
 
-easy_split_app.controller('HomeCtrl', function ($scope, APIService) {
+easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
 
   // Get username
   $scope.data = {
@@ -48,8 +48,12 @@ easy_split_app.controller('HomeCtrl', function ($scope, APIService) {
     balance: '-'
   }
 
-  $scope.hi = function () {
-    console.log("hello")
+  $scope.checkUser = function () {
+    if ($scope.data.username === undefined) {
+      $state.go('login');
+    } else {
+      $scope.showBalance();
+    }
   }
 
   $scope.showBalance = function () {
@@ -103,8 +107,6 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
 
 // FACTORY
 easy_split_app.factory('APIService', ['$http', '$q',
-
-
   function ($http, $q) {
 
     var username = "";
