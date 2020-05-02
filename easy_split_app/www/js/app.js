@@ -70,9 +70,16 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
           console.log("error")
         })
   }
+  $scope.sendMoney = function () {
+    $scope.updateBalance(parseFloat($scope.data.balance) - 5)
+  }
 
-  $scope.updateBalance = function () {
-    APIService.modifyBalance($scope.data.username, parseFloat($scope.data.balance)-5)
+  $scope.receiveMoney = function () {
+    $scope.updateBalance(parseFloat($scope.data.balance) + 5)
+  }
+
+  $scope.updateBalance = function (balance) {
+    APIService.modifyBalance($scope.data.username, balance)
       .then(function (data) {
           $scope.showBalance();
         },
@@ -92,13 +99,13 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
   }
 
   $scope.login = function () {
-    $scope.incorrect_login = "-";
     APIService.check($scope.data.username, $scope.data.password)
       .then(function (data) {
           APIService.username = $scope.data.username;
 
           if (data.data.valid_user === "true") {
             console.log("Access granted to " + $scope.data.username)
+            delete $scope.incorrect_login;
             $state.go('home')
           } else {
             console.log("Access denied")
