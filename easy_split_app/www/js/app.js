@@ -42,8 +42,14 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/split.html',
       controller: 'CamCtrl'
     })
+    .state('send', {
+      url: '/send',
+      templateUrl: 'templates/send.html',
+      controller: 'SendCtrl'
+    })
   $urlRouterProvider.otherwise('/login');
 });
+
 
 easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
   // Get username
@@ -74,8 +80,10 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
           console.log("error")
         })
   }
+
   $scope.sendMoney = function () {
-    $scope.updateBalance(parseFloat($scope.data.balance) - 5)
+    // $scope.updateBalance(parseFloat($scope.data.balance) - 5)
+    $state.go('send')
   }
 
   $scope.receiveMoney = function () {
@@ -164,6 +172,100 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
       alert('Failed because: ' + message);
     }
   }
+});
+
+easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, APIService) {
+
+  // Get username
+  $scope.data = {
+    username: APIService.username,
+    balance: false,
+    amount: null,
+    receiver: ""
+  }
+
+  $scope.checkUser = function () {
+    if ($scope.data.username === undefined) {
+      $state.go('login');
+    } else {
+      $scope.showBalance();
+    }
+  }
+
+  $scope.showBalance = function () {
+    APIService.getBalance($scope.data.username)
+      .then(function (data) {
+          $scope.data.balance = JSON.stringify(data.data.docs[0].balance)
+          console.log($scope.data.balance);
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
+  }
+
+  $scope.sendMoney = function () {
+
+    if (parseFloat($scope.data.balance) < $scope.data.amount) {
+      console.log("Insufficient funds")
+      $scope.insufficientFundsPopUp()
+    } else {
+      var current_balance_receiver = null;
+
+      console.log("sending money...")
+      console.log("amount: " + parseFloat($scope.data.amount))
+      console.log("to: " + $scope.data.receiver)
+      console.log("remaining balance: " + (parseFloat($scope.data.balance) - $scope.data.amount))
+
+      // Updating sender balance 
+      $scope.updateBalance($scope.data.username, parseFloat($scope.data.balance) - $scope.data.amount)
+
+      // Updating receiver balance 
+
+      console.log("Getting account balance for " + $scope.data.receiver + "...")
+
+      APIService.getBalance($scope.data.receiver)
+        .then(function (data) {
+            current_balance_receiver = data.data.docs[0].balance
+            console.log(current_balance_receiver);
+            APIService.modifyBalance($scope.data.receiver, (current_balance_receiver + $scope.data.amount))
+          },
+
+          function (err) {
+            // error
+            console.log("error")
+          })
+
+      console.log("transaction completed")
+    }
+  }
+
+  $scope.updateBalance = function (user, balance) {
+    APIService.modifyBalance(user, balance)
+      .then(function (data) {
+          $scope.showBalance();
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
+  }
+
+  $scope.insufficientFundsPopUp = function () {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Insufficient Funds',
+      template: 'Perdon yo no hablo pobre'
+    });
+    confirmPopup.then(function (res) {
+      if (res) {
+        console.log('GPS activate');
+      } else {
+        console.log('GPS not activate');
+      }
+    });
+  };
 });
 
 // FACTORY
