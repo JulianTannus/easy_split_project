@@ -45,6 +45,12 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
         splitType: ''
       }
     })
+
+    .state('experiment', {
+      url: '/exp',
+      templateUrl: 'templates/experiment.html',
+      controller: 'ExpCtrl'
+    })
   $urlRouterProvider.otherwise('/login');
 });
 
