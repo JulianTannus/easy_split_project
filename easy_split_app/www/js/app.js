@@ -49,7 +49,6 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
-
   // Get username
   $scope.data = {
     username: APIService.username,
@@ -117,7 +116,6 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
 
           if (data.data.valid_user === "true") {
             console.log("Access granted to " + $scope.data.username)
-            delete $scope.incorrect_login;
             $state.go('home')
           } else {
             console.log("Access denied")
@@ -174,8 +172,6 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
 // FACTORY
 easy_split_app.factory('APIService', ['$http', '$q',
   function ($http, $q) {
-
-    var username = "";
 
     var mDeferred = $q.defer();
     var service = {
