@@ -46,11 +46,6 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('experiment', {
-      url: '/exp',
-      templateUrl: 'templates/experiment.html',
-      controller: 'ExpCtrl'
-    })
   $urlRouterProvider.otherwise('/login');
 });
 
@@ -136,20 +131,8 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
   }
 });
 
-easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
+easy_split_app.controller('CamCtrl', function ($scope,$state,$ionicPopup) {
 
-  $scope.data = {
-    splitType: ''
-  };
-  $scope.splitTypeList = [{
-      text: "Female",
-      checked: false
-    },
-    {
-      text: "Male",
-      checked: false
-    }
-  ];
 
   $scope.no_photo = "img/no_photo.png";
 
@@ -172,6 +155,44 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
     function onFail(message) {
       alert('Failed because: ' + message);
     }
+  }
+  $scope.clickPayment = function() {
+
+   var splitTypePopup = $ionicPopup.confirm({
+    templateUrl: 'orderPopup.html',
+    title: 'XYZ?',
+    scope: $scope,
+    buttons: [{
+      text: 'Yes',
+      type: 'button-positive',
+      onTap: function (e) {
+        console.log($scope.choice);
+      }
+    }, {
+      text: 'No',
+      type: 'button-default',
+      onTap: function (e) {
+        $state.go('shoppingCart');
+      }
+    }]
+  });
+   /* 
+    splitTypePopup.then(function(res) {
+      if (res) {
+        console.log('CV created');
+        for (i = 0; i < $scope.educationList.length; i++) {
+          if ($scope.educationList[i].checked == true) {
+            $scope.checkedEducation.push($scope.educationList[i].text);
+          }
+        }
+        console.log($scope.checkedEducation);
+        $scope.data.name = document.getElementById("name").value;
+        $state.go('cv', $scope.data);
+
+      } else {
+        console.log('CV not created');
+      }
+    });*/
   }
 });
 

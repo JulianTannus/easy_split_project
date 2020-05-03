@@ -11,9 +11,7 @@
     <body ng-app="starter" ng-controller="CamCtrl">
   
       <div class="item">
-        
-      
-        <ion-button class="button-icon" id="nav_back_button">Back</ion-button>
+       <!-- <ion-button class="button-icon" id="nav_back_button">Back</ion-button>-->
         <img src="img/easy_split_logo.png" id="logo">
       </div>
       <div class="item">
@@ -30,7 +28,7 @@
       </a>
       <br><br>
       <div id="pay_button">
-        <button ng-click="recognizepic()">
+        <button ng-click="clickPayment()">
           Pay Split
         </button>
       </div>
@@ -42,6 +40,12 @@
           {{ item.text }}
         </ion-radio>
       </div>-->
+
+      <script id='orderPopup.html' type='text/ng-template'>
+        <ion-radio ng-model="choice.value" ng-value="'1'" required>Option1</ion-radio>
+        <ion-radio ng-model="choice.value" ng-value="'2'" required>Option2</ion-radio>
+        <ion-radio ng-model="choice.value" ng-value="'3'">Option3</ion-radio><input type="text">
+    </script>
 
     </body>
   </ion-content>
