@@ -61,7 +61,6 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
 
 
 easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
-  // Get username
   $scope.data = {
     username: APIService.username,
     balance: false
@@ -200,7 +199,7 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
       }]
     });
   }
-  
+
   $scope.goBack = function () {
     $state.go('home');
   }
@@ -295,6 +294,10 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
     var confirmPopup = $ionicPopup.alert({
       title: message
     });
+  }
+
+  $scope.goBack = function () {
+    $state.go('home');
   }
 });
 

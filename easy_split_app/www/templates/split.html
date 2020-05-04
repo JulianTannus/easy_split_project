@@ -12,7 +12,7 @@
 
       <div class="item" id="header">
         <ion-button class="button-icon" id="nav_back_button" ng-click="goBack()">Back</ion-button>
-        <img src="img/easy_split_logo.png" id="logo">
+        <img src="img/easy_split_logo.png" id="split_logo">
         <br><br>
       </div>
 
@@ -34,11 +34,11 @@
           Pay Split
         </button>
       </div>
-  
+
       <script id='orderPopup.html' type='text/ng-template'>
 
-    
-          <div class="item">
+
+        <div class="item">
             Choose split: {{ data.splitType }}
           </div>
           <ion-radio ng-repeat="item in splitTypeList" ng-model="data.splitType" ng-value="item.text" required>
