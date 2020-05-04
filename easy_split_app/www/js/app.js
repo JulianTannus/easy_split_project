@@ -60,7 +60,7 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 
-easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
+easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $rootScope) {
   $scope.data = {
     username: APIService.username,
     balance: false
@@ -74,7 +74,7 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService) {
     }
   }
 
-  $scope.showBalance = function () {
+  $rootScope.showBalance = function () {
     console.log("Getting account balance for " + $scope.data.username + "...")
 
     APIService.getBalance($scope.data.username)
@@ -205,7 +205,7 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
   }
 });
 
-easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, APIService) {
+easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, APIService, $rootScope) {
 
   // Get username
   $scope.data = {
@@ -298,6 +298,7 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
 
   $scope.goBack = function () {
     $state.go('home');
+    $rootScope.showBalance();
   }
 });
 
