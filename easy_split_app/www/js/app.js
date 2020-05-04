@@ -133,6 +133,9 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
 
 easy_split_app.controller('CamCtrl', function ($scope,$state,$ionicPopup) {
 
+  /*$scope.choice = {
+    value = '2',
+  };*/
 
   $scope.no_photo = "img/no_photo.png";
 
