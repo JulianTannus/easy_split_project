@@ -41,7 +41,7 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       url: '/split',
       templateUrl: 'templates/split.html',
       controller: 'CamCtrl',
-      params:{
+      params: {
         splitType: ''
       }
     })
@@ -131,12 +131,20 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
   }
 });
 
-easy_split_app.controller('CamCtrl', function ($scope,$state,$ionicPopup) {
+easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
 
   /*$scope.choice = {
     value = '2',
   };*/
+  $scope.data = {
+    splitType: '',
+  }
 
+  $scope.splitTypeList = [{
+    text: "Equal Split",
+     }, {
+    text: "Custom Split"
+  }];
   $scope.no_photo = "img/no_photo.png";
 
   $scope.takepicture = function () {
@@ -159,44 +167,48 @@ easy_split_app.controller('CamCtrl', function ($scope,$state,$ionicPopup) {
       alert('Failed because: ' + message);
     }
   }
-  $scope.clickPayment = function() {
+  $scope.clickPayment = function () {
 
-   var splitTypePopup = $ionicPopup.confirm({
-    templateUrl: 'orderPopup.html',
-    title: 'XYZ?',
-    scope: $scope,
-    buttons: [{
-      text: 'Yes',
-      type: 'button-positive',
-      onTap: function (e) {
-        console.log($scope.choice);
-      }
-    }, {
-      text: 'No',
-      type: 'button-default',
-      onTap: function (e) {
-        $state.go('shoppingCart');
-      }
-    }]
-  });
-   /* 
-    splitTypePopup.then(function(res) {
-      if (res) {
-        console.log('CV created');
-        for (i = 0; i < $scope.educationList.length; i++) {
-          if ($scope.educationList[i].checked == true) {
-            $scope.checkedEducation.push($scope.educationList[i].text);
-          }
+    var splitTypePopup = $ionicPopup.confirm({
+      templateUrl: 'orderPopup.html',
+      title: 'XYZ?',
+      scope: $scope,
+      buttons: [{
+        text: 'Yes',
+        type: 'button-positive',
+        onTap: function (e) {
+          console.log($scope.choice);
         }
-        console.log($scope.checkedEducation);
-        $scope.data.name = document.getElementById("name").value;
-        $state.go('cv', $scope.data);
+      }, {
+        text: 'No',
+        type: 'button-default',
+        onTap: function (e) {
+          $state.go('SplitPayFinal');
+        }
+      }]
+    });
+    /* 
+     splitTypePopup.then(function(res) {
+       if (res) {
+         console.log('CV created');
+         for (i = 0; i < $scope.educationList.length; i++) {
+           if ($scope.educationList[i].checked == true) {
+             $scope.checkedEducation.push($scope.educationList[i].text);
+           }
+         }
+         console.log($scope.checkedEducation);
+         $scope.data.name = document.getElementById("name").value;
+         $state.go('cv', $scope.data);
 
-      } else {
-        console.log('CV not created');
-      }
-    });*/
+       } else {
+         console.log('CV not created');
+       }
+     });*/
   }
+  $scope.goBack = function () {
+    $state.go('home');
+  }
+
 });
 
 // FACTORY
