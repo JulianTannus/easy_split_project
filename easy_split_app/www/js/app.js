@@ -45,6 +45,11 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
         splitType: ''
       }
     })
+    .state('total', {
+      url:'/total',
+      templateUrl:'templates/total.html',
+      controller: ''
+    })
 
   $urlRouterProvider.otherwise('/login');
 });
@@ -133,18 +138,16 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
 
 easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
 
-  /*$scope.choice = {
-    value = '2',
-  };*/
   $scope.data = {
     splitType: '',
   }
 
   $scope.splitTypeList = [{
     text: "Equal Split",
-     }, {
+  }, {
     text: "Custom Split"
   }];
+
   $scope.no_photo = "img/no_photo.png";
 
   $scope.takepicture = function () {
@@ -171,19 +174,20 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
 
     var splitTypePopup = $ionicPopup.confirm({
       templateUrl: 'orderPopup.html',
-      title: 'XYZ?',
+      title: 'Split Payment',
       scope: $scope,
       buttons: [{
-        text: 'Yes',
+        text: 'Continue',
         type: 'button-positive',
         onTap: function (e) {
-          console.log($scope.choice);
+          $state.go('total');
+          //console.log($scope.choice);
         }
       }, {
-        text: 'No',
+        text: 'Close',
         type: 'button-default',
         onTap: function (e) {
-          $state.go('SplitPayFinal');
+          close;
         }
       }]
     });
