@@ -50,12 +50,6 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/send.html',
       controller: 'SendCtrl'
     })
-    .state('total', {
-      url: '/total',
-      templateUrl: 'templates/total.html',
-      controller: ''
-    })
-
   $urlRouterProvider.otherwise('/login');
 });
 
@@ -187,7 +181,7 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
         text: 'Continue',
         type: 'button-positive',
         onTap: function (e) {
-          $state.go('total');
+          $state.go('home');
           //console.log($scope.choice);
         }
       }, {
@@ -267,9 +261,11 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
             // error
             console.log("error")
           })
-
-      $scope.fundsPopUp(true)
-      console.log("transaction completed")
+      
+      $scope.data.receiver="";
+      $scope.data.amount=null;
+      $scope.fundsPopUp(true);
+      console.log("transaction completed");
     }
   }
 

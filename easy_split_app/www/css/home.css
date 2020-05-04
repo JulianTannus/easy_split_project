@@ -2,6 +2,17 @@
   background-color: #F2F3F7;
 }
 
+
+#logout {
+  text-align: right;
+  margin-right: 25px;
+}
+
+#logout_img {
+  width: 25px;
+  margin-left: auto;
+}
+
 #logo {
   width: 180px;
   display: block;
