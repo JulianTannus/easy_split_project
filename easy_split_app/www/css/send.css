@@ -2,20 +2,6 @@
   background-color: #F2F3F7;
 }
 
-#header {
-  display: flex;
-  flex-direction: row;
-}
-
-#nav_back_button {
-  margin-left: 0px;
-  padding: 10px;
-  height: 40px;
-  color: #38B6FF;
-  font-size: 18px;
-  border-radius: 10px;
-}
-
 #logo {
   width: 180px;
   display: block;
@@ -45,8 +31,14 @@
 }
 
 #balance_title {
-  font-size: 14pt;
-  color: black;
+  font-size: 12pt;
+  color: grey;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#balance_amount {
+  font-size: 24pt;
   text-align: center;
 }
 

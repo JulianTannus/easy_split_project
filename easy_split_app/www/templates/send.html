@@ -6,33 +6,28 @@
     </head>
 
     <body>
-      <div class="item" id="header">
-        <ion-button class="button-icon" id="nav_back_button" ng-click="goBack()">Back</ion-button>
-        <img src="img/easy_split_logo.png" id="split_logo">
+      <div id="header">
         <br><br>
+        <img src="img/easy_split_logo.png" ng-click="goBack()" id="logo">
+        <br>
       </div>
 
       <div id="send_money_title">
-        <p>Send Money</p>
-        <hr id=history_line>
+        <p>Transfer Funds</p>
+        <hr>
       </div>
 
       <div id="balance">
-        <!-- <p id="balance_title"> <strong>Available Balance: </strong> € {{data.balance}}</p> -->
-
-        <p ng-if="data.balance!=false" id="balance_title"><strong>Available Balance: </strong> € {{data.balance}}</p>
-        <p ng-if="data.balance==false" id="balance_title"><strong>Available Balance: </strong> </p>
-        <!-- <p ng-if="data.balance!=false" id="balance_amount">€ {{data.balance}}</p>
-        <p ng-if="data.balance==false" id="balance_amount"> - </p> -->
+        <p id="balance_title">EasySplit Balance</p>
+        <p ng-if="data.balance!=false" id="balance_amount"> € {{data.balance}}</p>
       </div>
-
 
       <div id="send_form">
         <input type="text" placeholder="Receiver" ng-model="data.receiver" id="receiver">
         <input type="number" placeholder="Amount" ng-model="data.amount">
       </div>
 
-      <br><br><br><br><br><br><br><br>
+      <br><br><br><br>
 
       <div id=send_button>
         <button ng-click="sendMoney()">Send</button>

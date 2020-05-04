@@ -2,28 +2,11 @@
   background-color: #F2F3F7;
 }
 
-
-#header {
-  display: flex;
-  flex-direction: row;
-}
-
-#nav_back_button {
-  margin-left: 0px;
-  padding: 10px;
-  height: 40px;
-  color: #38B6FF;
-  font-size: 18px;
-  border-radius: 10px;
-}
-
-
-#split_logo {
+#logo {
   width: 180px;
-  margin-top: auto;
+  display: block;
   margin-left: auto;
-  margin-right: 90px;
-  margin-bottom: auto;
+  margin-right: auto;
 }
 
 #title {
