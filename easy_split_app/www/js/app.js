@@ -40,7 +40,10 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
     .state('split', {
       url: '/split',
       templateUrl: 'templates/split.html',
-      controller: 'CamCtrl'
+      controller: 'CamCtrl',
+      params: {
+        splitType: ''
+      }
     })
     .state('send', {
       url: '/send',
@@ -137,19 +140,6 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
 
 easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
 
-  $scope.data = {
-    splitType: ''
-  };
-  $scope.genderinfoList = [{
-      text: "Female",
-      checked: false
-    },
-    {
-      text: "Male",
-      checked: false
-    }
-  ];
-
   $scope.no_photo = "img/no_photo.png";
 
   $scope.takepicture = function () {
@@ -171,6 +161,27 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
     function onFail(message) {
       alert('Failed because: ' + message);
     }
+  }
+  $scope.clickPayment = function () {
+
+    var splitTypePopup = $ionicPopup.confirm({
+      templateUrl: 'orderPopup.html',
+      title: 'XYZ?',
+      scope: $scope,
+      buttons: [{
+        text: 'Yes',
+        type: 'button-positive',
+        onTap: function (e) {
+          console.log($scope.choice);
+        }
+      }, {
+        text: 'No',
+        type: 'button-default',
+        onTap: function (e) {
+          $state.go('shoppingCart');
+        }
+      }]
+    });
   }
 });
 

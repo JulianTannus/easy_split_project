@@ -9,10 +9,12 @@
     </head>
 
     <body ng-app="starter" ng-controller="CamCtrl">
+  
       <div class="item">
-        <br>
+       <!-- <ion-button class="button-icon" id="nav_back_button">Back</ion-button>-->
         <img src="img/easy_split_logo.png" id="logo">
-        <br><br>
+      </div>
+      <div class="item">
         <h2 id="title">Join Split</h2>
         <p id="description">It's easy, just <strong>open the camera and scan!</strong></p>
       </div>
@@ -26,18 +28,24 @@
       </a>
       <br><br>
       <div id="pay_button">
-        <button ng-click="recognizepic()">
+        <button ng-click="clickPayment()">
           Pay Split
         </button>
       </div>
-      <div class="list">
+      <!--<div class="list">
         <div class="item item-divider">
           Choose split: {{data.splitType}}
         </div>
         <ion-radio ng-repeat="item in splitTypeList" ng-model="data.splitType" ng-value="item.text" required>
           {{ item.text }}
         </ion-radio>
-      </div>
+      </div>-->
+
+      <script id='orderPopup.html' type='text/ng-template'>
+        <ion-radio class="item" ng-model="choice.value" ng-value="'1'" required>Option1</ion-radio>
+        <ion-radio ng-model="choice.value" ng-value="'2'" required>Option2</ion-radio>
+        <ion-radio ng-model="choice.value" ng-value="'3'">Option3</ion-radio><input type="text">
+    </script>
 
     </body>
   </ion-content>

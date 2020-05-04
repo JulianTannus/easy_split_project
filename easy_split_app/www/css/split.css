@@ -1,9 +1,10 @@
-  .padding {
+.padding {
     background-color: #F2F3F7;
   }
 
   #logo {
-    width: 180px;
+    width: 120px;
+    margin-top:auto;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -39,4 +40,72 @@
     font-size: 18pt;
     margin-bottom: 15px;
     box-shadow: white;
+  }
+  #nav_back_button{
+      margin-left: 0px;
+      margin-top: auto;
+      margin-bottom: auto;
+      padding: 10px;
+      background-color: #38B6FF;
+      color: white;
+
+      font-size: 18px;
+      border-radius: 10px;
+  }
+
+  body {
+    background: #34495e;
+    font: normal 300 18px "Roboto", sans-serif;
+  }
+   
+  #menu-nav {
+    max-width: 1000px;
+    margin: 130px auto;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+   
+  #navigation-bar ul {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  #navigation-bar li {
+    float: left;
+    width: 20%;
+  }
+  #navigation-bar li:hover a::before {
+    right: 0;
+    left: 0;
+  }
+  #navigation-bar a {
+    color: #848484;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding: 20px 0;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  #navigation-bar a:hover {
+    color: #e74c3c;
+  }
+  #navigation-bar a::before {
+    content: "";
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    bottom: 0;
+    height: 2px;
+    background-color: #e74c3c;
+  }
+  #navigation-bar a:hover::before {
+    right: 0;
+    left: 0;
+  }
+   
+  li {
+      list-style: none;
   }
