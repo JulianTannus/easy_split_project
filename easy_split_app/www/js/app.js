@@ -220,7 +220,7 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
 
     if (parseFloat($scope.data.balance) < $scope.data.amount) {
       console.log("Insufficient funds")
-      $scope.insufficientFundsPopUp()
+      $scope.fundsPopUp(false)
     } else {
       var current_balance_receiver = null;
 
@@ -248,6 +248,7 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
             console.log("error")
           })
 
+      $scope.fundsPopUp(true)
       console.log("transaction completed")
     }
   }
@@ -260,21 +261,19 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
 
         function (err) {
           // error
-          console.log("error")
+          console.log("error");
         })
   }
 
-  $scope.insufficientFundsPopUp = function () {
-    var confirmPopup = $ionicPopup.confirm({
-      title: 'Insufficient Funds',
-      template: 'Perdon yo no hablo pobre'
-    });
-    confirmPopup.then(function (res) {
-      if (res) {
-        console.log('GPS activate');
-      } else {
-        console.log('GPS not activate');
-      }
+  $scope.fundsPopUp = function (success) { 
+    if (success){
+      message = "Funds transferred successfully!"
+    }
+    else {
+      message = 'Insufficient Funds'
+    }
+    var confirmPopup = $ionicPopup.alert({
+      title: message
     });
   };
 });
