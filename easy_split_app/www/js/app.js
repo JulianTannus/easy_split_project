@@ -71,14 +71,6 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $roo
     balance: $scope.balance
   }
 
-  $scope.checkUser = function () {
-    if ($scope.data.username === undefined) {
-      $state.go('login');
-    } else {
-      $scope.showBalance();
-    }
-  }
-
   $rootScope.showBalance = function () {
     console.log("Getting account balance for " + $scope.data.username + "...")
 
@@ -120,9 +112,6 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $roo
   }
 
   $scope.logOut = function () {
-    APIService.username = ''
-    $scope.data.username = ''
-    $scope.data.balance = false
     $state.go('login')
   }
 });
