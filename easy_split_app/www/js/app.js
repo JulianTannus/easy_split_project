@@ -45,7 +45,7 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: 'templates/split.html',
       controller: 'CamCtrl',
       params: {
-        splitType: ''
+        balance: ''
       }
     })
     .state('send', {
@@ -58,9 +58,6 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
 
 
 easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $rootScope, $stateParams) {
-
-  // $scope.data = $stateParams;
-  // $scope.languages = $scope.data.selected_languages.toString();
   $scope.balance = $stateParams.balance.toString();
 
   $scope.data = {
@@ -113,7 +110,7 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $roo
   }
 
   $scope.goToJoinSplit = function () {
-    $state.go('split');
+    $state.go('split', $scope.data);
   }
 
   $scope.logOut = function () {
@@ -168,10 +165,13 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
   }
 });
 
-easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
+easy_split_app.controller('CamCtrl', function ($scope, $state, $stateParams, APIService, $ionicPopup) {
+  
+  $scope.balance = $stateParams.balance.toString();
 
   $scope.data = {
-    splitType: '',
+    username: APIService.username,
+    balance: $scope.balance
   }
 
   $scope.splitTypeList = [{
@@ -212,7 +212,7 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
         text: 'Continue',
         type: 'button-positive',
         onTap: function () {
-          $state.go('home');
+          $state.go('home', $scope.data);
           $scope.no_photo = "img/no_photo.png";
         }
       }, {
@@ -226,7 +226,7 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
   }
 
   $scope.goBack = function () {
-    $state.go('home');
+    $state.go('home', $scope.data);
     $scope.no_photo = "img/no_photo.png";
   }
 });
@@ -325,7 +325,7 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
   }
 
   $scope.goBack = function () {
-    $state.go('home');
+    $state.go('home', $scope.data);
     $rootScope.showBalance();
   }
 });
