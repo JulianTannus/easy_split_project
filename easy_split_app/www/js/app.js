@@ -56,6 +56,7 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
       controller: 'SendCtrl',
       params: {
         username: '',
+        balance: ''
       }
     })
   $urlRouterProvider.otherwise('/login');
@@ -131,6 +132,8 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
           $scope.data.balance = JSON.stringify(data.data.docs[0].balance)
           console.log($scope.data.balance);
           $state.go('home', $scope.data);
+          $scope.data.username = "";
+          $scope.data.password = "";
         },
 
         function (err) {
@@ -230,20 +233,13 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $stateParams, API
 easy_split_app.controller('SendCtrl', function ($scope, $state, $stateParams, $ionicPopup, APIService, $rootScope) {
 
   $scope.username = $stateParams.username.toString();
+  $scope.balance = $stateParams.balance.toString();
 
   $scope.data = {
     username: $scope.username,
-    balance: false,
+    balance: $scope.balance,
     amount: null,
     receiver: ""
-  }
-
-  $scope.checkUser = function () {
-    if ($scope.data.username === undefined) {
-      $state.go('login');
-    } else {
-      $scope.showBalance();
-    }
   }
 
   $scope.showBalance = function () {
