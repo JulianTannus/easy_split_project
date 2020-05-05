@@ -30,7 +30,10 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'templates/home.html',
-      controller: 'HomeCtrl'
+      controller: 'HomeCtrl',
+      params: {
+        balance: ''
+      }
     })
     .state('login', {
       url: '/login',
@@ -54,10 +57,15 @@ easy_split_app.config(function ($stateProvider, $urlRouterProvider) {
 });
 
 
-easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $rootScope) {
+easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $rootScope, $stateParams) {
+
+  // $scope.data = $stateParams;
+  // $scope.languages = $scope.data.selected_languages.toString();
+  $scope.balance = $stateParams.balance.toString();
+
   $scope.data = {
     username: APIService.username,
-    balance: false
+    balance: $scope.balance
   }
 
   $scope.checkUser = function () {
@@ -107,13 +115,36 @@ easy_split_app.controller('HomeCtrl', function ($scope, $state, APIService, $roo
   $scope.goToJoinSplit = function () {
     $state.go('split');
   }
+
+  $scope.logOut = function () {
+    APIService.username = ''
+    $scope.data.username = ''
+    $scope.data.balance = false
+    $state.go('login')
+  }
 });
 
 easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
-
   $scope.data = {
     username: "",
-    password: ""
+    password: "",
+    balance: ""
+  }
+
+  $scope.showBalance = function () {
+    console.log("Getting account balance for " + $scope.data.username + "...")
+
+    APIService.getBalance($scope.data.username)
+      .then(function (data) {
+          $scope.data.balance = JSON.stringify(data.data.docs[0].balance)
+          console.log($scope.data.balance);
+          $state.go('home', $scope.data);
+        },
+
+        function (err) {
+          // error
+          console.log("error")
+        })
   }
 
   $scope.login = function () {
@@ -122,10 +153,10 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
           APIService.username = $scope.data.username;
 
           if (data.data.valid_user === "true") {
-            console.log("Access granted to " + $scope.data.username)
-            $state.go('home')
+            console.log("Access granted to " + $scope.data.username);
+            $scope.showBalance();
           } else {
-            console.log("Access denied")
+            console.log("Access denied");
             $scope.incorrect_login = "Incorrect username or password";
           }
         },
@@ -262,9 +293,9 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $ionicPopup, API
             // error
             console.log("error")
           })
-      
-      $scope.data.receiver="";
-      $scope.data.amount=null;
+
+      $scope.data.receiver = "";
+      $scope.data.amount = null;
       $scope.fundsPopUp(true);
       console.log("transaction completed");
     }
