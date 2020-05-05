@@ -282,7 +282,6 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $stateParams, $i
       $scope.data.receiver = "";
       $scope.data.amount = null;
       $scope.fundsPopUp(true);
-      console.log("transaction completed");
     }
   }
 
