@@ -161,7 +161,7 @@ easy_split_app.controller('LoginCtrl', function ($scope, $state, APIService) {
 });
 
 easy_split_app.controller('CamCtrl', function ($scope, $state, $stateParams, APIService, $ionicPopup) {
-  
+
   $scope.username = $stateParams.username.toString();
   $scope.balance = $stateParams.balance.toString();
 
@@ -276,20 +276,8 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $stateParams, $i
       $scope.updateBalance($scope.data.username, parseFloat($scope.data.balance) - $scope.data.amount)
 
       // Updating receiver balance 
-
       console.log("Getting account balance for " + $scope.data.receiver + "...")
-
-      APIService.getBalance($scope.data.receiver)
-        .then(function (data) {
-            current_balance_receiver = data.data.docs[0].balance
-            console.log(current_balance_receiver);
-            APIService.modifyBalance($scope.data.receiver, (current_balance_receiver + $scope.data.amount))
-          },
-
-          function (err) {
-            // error
-            console.log("error")
-          })
+      $scope.updateBalanceReceiver($scope.data.receiver, $scope.data.amount)
 
       $scope.data.receiver = "";
       $scope.data.amount = null;
@@ -307,6 +295,22 @@ easy_split_app.controller('SendCtrl', function ($scope, $state, $stateParams, $i
         function (err) {
           // error
           console.log("error");
+        })
+  }
+
+  $scope.updateBalanceReceiver = function (user, balance) {
+    APIService.getBalance(user)
+      .then(function (data) {
+          current_balance_receiver = data.data.docs[0].balance
+          console.log("current receiver: " + user);
+          console.log("current balance receiver: " + current_balance_receiver);
+          console.log("accumulated balance: " + (current_balance_receiver + balance));
+          APIService.modifyBalance(user, (current_balance_receiver + balance))
+        },
+
+        function (err) {
+          // error
+          console.log("error")
         })
   }
 
