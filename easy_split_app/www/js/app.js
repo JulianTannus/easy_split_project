@@ -180,9 +180,9 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
       buttons: [{
         text: 'Continue',
         type: 'button-positive',
-        onTap: function (e) {
+        onTap: function () {
           $state.go('home');
-          //console.log($scope.choice);
+          $scope.no_photo = "img/no_photo.png";
         }
       }, {
         text: 'Close',
@@ -196,6 +196,7 @@ easy_split_app.controller('CamCtrl', function ($scope, $state, $ionicPopup) {
 
   $scope.goBack = function () {
     $state.go('home');
+    $scope.no_photo = "img/no_photo.png";
   }
 });
 
