@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true" ng-init="checkUser()">
+<ion-view hide-nav-bar="true">
   <ion-content class="padding">
 
     <head>
@@ -7,10 +7,13 @@
 
     <body>
       <div>
+        <br>
+        <div id="logout">
+          <img src="img/logout_button_img.png" id='logout_img' ng-click="logOut()">
+        </div>
+        <img src=" img/easy_split_logo.png" id="logo">
         <br><br>
-        <img src="img/easy_split_logo.png" id="logo">
-        <br><br>
-        <div id="balance">
+        <div id=" balance">
           <p id="balance_title">EasySplit Balance</p>
           <p ng-if="data.balance!=false" id="balance_amount">€ {{data.balance}}</p>
           <p ng-if="data.balance==false" id="balance_amount"> - </p>
@@ -24,7 +27,7 @@
         <div id="secondary_buttons">
           <button ng-click="sendMoney()">Send</button>
           <span id="secondary_buttons_separator">
-          <button ng-click="receiveMoney()">Receive</button>
+            <button ng-click="receiveMoney()">Receive</button>
         </div>
         <br><br>
         <div id="history">

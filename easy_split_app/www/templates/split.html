@@ -10,10 +10,10 @@
 
     <body ng-app="starter" ng-controller="CamCtrl">
 
-      <div class="item" id="header">
-        <ion-button class="button-icon" id="nav_back_button" ng-click="goBack()">Back</ion-button>
-        <img src="img/easy_split_logo.png" id="logo">
+      <div id="header">
         <br><br>
+        <img src="img/easy_split_logo.png" ng-click="goBack()" id="logo">
+        <br>
       </div>
 
       <div class="item">
@@ -34,30 +34,16 @@
           Pay Split
         </button>
       </div>
-  
+
       <script id='orderPopup.html' type='text/ng-template'>
 
-    
-          <div class="item">
+
+        <div class="item">
             Choose split: {{ data.splitType }}
           </div>
           <ion-radio ng-repeat="item in splitTypeList" ng-model="data.splitType" ng-value="item.text" required>
             {{ item.text }}
           </ion-radio>
-          
-
-          <!--<ion-list-header>
-            <ion-label id="title">Choose</ion-label>
-          </ion-list-header>
-          
-            <ion-radio ng-repeat="item in splitTypeList" ng-model="data.splitType" ng-value="item.text" required>
-              {{item.text}}
-            </ion-radio>-->
-            
-            <!--<ion-checkbox>
-            <ion-label>Custom Split</ion-label>
-            <ion-radio ng-repeat="start" color="success" value="apple"></ion-radio>
-            </ion-checkbox>-->
       </script>
     </body>
   </ion-content>

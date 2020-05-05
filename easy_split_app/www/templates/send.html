@@ -1,0 +1,38 @@
+<ion-view hide-nav-bar="true" ng-init="checkUser()">
+  <ion-content class="padding">
+
+    <head>
+      <link href="css/send.css" rel="stylesheet">
+    </head>
+
+    <body>
+      <div id="header">
+        <br><br>
+        <img src="img/easy_split_logo.png" ng-click="goBack()" id="logo">
+        <br>
+      </div>
+
+      <div id="send_money_title">
+        <p>Transfer Funds</p>
+        <hr>
+      </div>
+
+      <div id="balance">
+        <p id="balance_title">EasySplit Balance</p>
+        <p ng-if="data.balance!=false" id="balance_amount"> € {{data.balance}}</p>
+      </div>
+
+      <div id="send_form">
+        <input type="text" placeholder="Receiver" ng-model="data.receiver" id="receiver">
+        <input type="number" placeholder="Amount" ng-model="data.amount">
+      </div>
+
+      <br><br><br><br>
+
+      <div id=send_button>
+        <button ng-click="sendMoney()">Send</button>
+      </div>
+
+    </body>
+  </ion-content>
+</ion-view>
